@@ -1,0 +1,11 @@
+FROM alpine:3.15
+
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+
+RUN apk add --no-cache sudo
+
+RUN chmod 755 /usr/local/bin/entrypoint.sh &&\
+    addgroup -S -g 1000 group &&\
+    adduser -S user -u 1000 -G group
+
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
