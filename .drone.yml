@@ -5,7 +5,7 @@ type: kubernetes
 name: build-image
 
 steps:
-  - name: docker
+  - name: docker-postfix
     image: plugins/docker
     environment:
       DOCKER_BUILDKIT: 1
@@ -19,7 +19,7 @@ steps:
       password:
         from_secret: dockerhub-password
       dockerfile: postfix/Dockerfile
-  - name: docker
+  - name: docker-dovecot
     image: plugins/docker
     environment:
       DOCKER_BUILDKIT: 1
