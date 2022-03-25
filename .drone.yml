@@ -19,3 +19,17 @@ steps:
       password:
         from_secret: dockerhub-password
       dockerfile: postfix/Dockerfile
+  - name: docker
+    image: plugins/docker
+    environment:
+      DOCKER_BUILDKIT: 1
+    settings:
+      repo: dasbaumwolltier/dovecot-alpine
+      tags:
+        - "3.15"
+        - latest
+      username:
+        from_secret: dockerhub-user
+      password:
+        from_secret: dockerhub-password
+      dockerfile: dovecot/Dockerfile
