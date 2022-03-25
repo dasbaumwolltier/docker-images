@@ -41,6 +41,7 @@ steps:
       DOCKER_BUILDKIT: 1
     settings:
       repo: dasbaumwolltier/modoboa-alpine
+      context: modoboa
       tags:
         - "1.17.0"
         - latest
@@ -48,5 +49,4 @@ steps:
         from_secret: dockerhub-user
       password:
         from_secret: dockerhub-password
-      dockerfile: modoboa/Dockerfile
       mtu: 1400
