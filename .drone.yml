@@ -42,6 +42,7 @@ steps:
     settings:
       repo: dasbaumwolltier/modoboa-alpine
       context: modoboa
+      dockerfile: modoboa/Dockerfile
       tags:
         - "1.17.0"
         - latest
