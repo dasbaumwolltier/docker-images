@@ -19,7 +19,7 @@ steps:
       password:
         from_secret: dockerhub-password
       dockerfile: postfix/Dockerfile
-      mtu: 1454
+      mtu: 1400
   - name: docker-dovecot
     image: plugins/docker
     environment:
@@ -34,4 +34,11 @@ steps:
       password:
         from_secret: dockerhub-password
       dockerfile: dovecot/Dockerfile
-      mtu: 1454
+      mtu: 1400
+  - name: parallel
+    image: alpine:3.15
+    commands:
+    - "echo true"
+    depends_on: 
+    - docker-postfix
+    - docker-dovecot
