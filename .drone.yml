@@ -35,10 +35,3 @@ steps:
         from_secret: dockerhub-password
       dockerfile: dovecot/Dockerfile
       mtu: 1400
-  - name: parallel
-    image: alpine:3.15
-    commands:
-    - "echo true"
-    depends_on: 
-    - docker-postfix
-    - docker-dovecot
